@@ -12,56 +12,97 @@ namespace WindowsFormsApp1
 {
     public partial class Calculator : Form
     {
+
+        // data field
+        private static string screenNum = ""; // 계산기 화면에 표시되는 값 즉, screenLabel.Text에 들어갈.
+        private static string addVal = "";//연산 버튼 입력 후
+        
+
         public Calculator()
         {
             InitializeComponent();
         }
-
-        private void HelloLabel_Click(object sender, EventArgs e)
-        {
-            int num1 = 1;
-            int num2 = 2;
-            int sum = num1 + num2;
-            HelloLabel.Text = sum.ToString();
+        
+        
+        //S: 핵심코드
+        public void setScreen(string clickedNum) {
+            if (screenNum != "0") {
+                screenNum += clickedNum;
+            }
+            else {
+                screenNum = clickedNum;
+            }
+            screenLabel.Text = screenNum;
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        //name이 sumBtn인 Button을 Click시 실행되는 메서드 
-        private void sumBtn_Click(object sender, EventArgs e)
-        {
-            int number1 = Convert.ToInt32(sum1.Text); // Int로 형변환 기본이 32bit
-            int number2 = Convert.ToInt32(sum2.Text);
-
-            result.Text = addCalc(number1, number2);
-            result2.Text = subCalc(number1, number2);
-        }
-
 
         public string addCalc(int a, int b)
         {
             return (a + b).ToString(); //모든 데이터타입이 ToString메서드 가지고 있다.
         }
-   
+
         public string subCalc(int a, int b)
         {
             return (a - b).ToString(); //모든 데이터타입이 ToString메서드 가지고 있다.
         }
+
+        //S: UI Event Handler
+       
+        private void clickNumber(object sender, EventArgs e)  //숫자패드 누르면 실행
+        {
+            Button clickedBtn = sender as Button;
+            if (clickedBtn != null)
+            {
+                setScreen(clickedBtn.Text);
+            }else{
+                setScreen("ERROR!");
+                return;
+            }
+        }
+        //연산자 버튼 클릭시 실행
+        private void clickedOperator() {
+            
+        }
+     
+        private void screenNum_Click(object sender, EventArgs e) //label
+        {
+
+        }
+
+        private void btnPlus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSub_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDiv_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMulti_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void getResult_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
-/*
- * 메소드는 클래스에 속한 함수를 말함 메소드는 함수인데 클래스에 속한 함수를 메소드라고 부름
-함수는 함수 이름과 매개변수로 프로토타입이 결정됨 매개변수가 다르다면 동일한 이름의 함수를 여러개 만들 수 있다.
-이걸 오버로딩이라고 한다. 함수의 리턴형은 함수의 프로토타입이 결정되는 데에 어떠한 역할도 하지 않음.  
 
- 
- */
 
+//UI와 핵심 코드는 완전히 분리 되도록 코딩한다.
+//UI가 바뀌어서 수정되어야하는 핵심 코드는 잘못된 것
+//좋은 코드는 UI가 바뀌어도 핵심 코드를 손댈 필요가 없도록 분리가 잘 되어있다.
+//위의 addCalc,subCalc처럼

@@ -7,3 +7,4 @@ C:\Users\yeji0\Desktop\projects\C#-study\WindowsFormsApp1\obj\Debug\WindowFormsA
 C:\Users\yeji0\Desktop\projects\C#-study\WindowsFormsApp1\obj\Debug\WindowFormsApp_Calc.csproj.CoreCompileInputs.cache
 C:\Users\yeji0\Desktop\projects\C#-study\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\yeji0\Desktop\projects\C#-study\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\yeji0\Desktop\projects\C#-study\WindowsFormsApp1\obj\Debug\WindowFormsApp_Calc.csproj.AssemblyReference.cache
